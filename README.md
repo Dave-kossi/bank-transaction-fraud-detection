@@ -166,37 +166,6 @@ Les métriques ne sont pas uniquement techniques :
 
 ---
 
-## 🛠️ Installation & Exécution du Projet
-
-### 📋 Prérequis
-- Python **>= 3.9**
-- Environnement virtuel recommandé (venv / conda)
-
-###  Dépendances principales
-- `numpy`
-- `pandas`
-- `scikit-learn`
-- `matplotlib`
-- `seaborn`
-- `jupyter`
-
----
-
-###  Installation locale
-
-```bash
-# Cloner le dépôt
-git clone https://github.com/Dave-kossi/bank-transaction-fraud-detection.git
-cd bank-transaction-fraud-detection
-
-# Créer un environnement virtuel
-python -m venv venv
-source venv/bin/activate  # Linux / Mac
-venv\Scripts\activate     # Windows
-
-
----
-
 ##  Conclusion
 Ce projet démontre l’impact **majeur du Machine Learning** dans la lutte contre la fraude bancaire.
 
