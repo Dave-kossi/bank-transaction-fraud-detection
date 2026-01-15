@@ -195,6 +195,7 @@ source venv/bin/activate  # Linux / Mac
 venv\Scripts\activate     # Windows
 
 
+---
 
 ##  Conclusion
 Ce projet démontre l’impact **majeur du Machine Learning** dans la lutte contre la fraude bancaire.
