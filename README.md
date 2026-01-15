@@ -140,6 +140,61 @@ Sur **10 000 transactions** dont **100 frauduleuses** :
 (Calcul basé sur un coût moyen de 3,10 € par fraude)
 
 ---
+## 🔁 Reproductibilité & Bonnes Pratiques
+
+Ce projet a été conçu selon les **standards professionnels de la Data Science**, afin de garantir :
+
+- 🔄 La **reproductibilité des résultats**
+- 🧪 La **traçabilité des expérimentations**
+- 🏗️ Une structure claire et maintenable
+
+### Principes appliqués
+- Utilisation de **seeds aléatoires fixées** pour garantir des résultats reproductibles
+- Séparation stricte :
+  - Données d’entraînement
+  - Données de validation
+  - Données de test
+- Validation croisée **5-fold**
+- Métriques adaptées aux **données fortement déséquilibrées**
+- Pipelines clairs pour le prétraitement et la modélisation
+
+### Évaluation orientée métier
+Les métriques ne sont pas uniquement techniques :
+- Le **Recall** est prioritaire (fraudes détectées)
+- La **Precision** est surveillée pour limiter les coûts opérationnels
+- Les résultats sont analysés sous l’angle **coût-bénéfice métier**
+
+---
+
+## 🛠️ Installation & Exécution du Projet
+
+### 📋 Prérequis
+- Python **>= 3.9**
+- Environnement virtuel recommandé (venv / conda)
+
+###  Dépendances principales
+- `numpy`
+- `pandas`
+- `scikit-learn`
+- `matplotlib`
+- `seaborn`
+- `jupyter`
+
+---
+
+###  Installation locale
+
+```bash
+# Cloner le dépôt
+git clone https://github.com/Dave-kossi/bank-transaction-fraud-detection.git
+cd bank-transaction-fraud-detection
+
+# Créer un environnement virtuel
+python -m venv venv
+source venv/bin/activate  # Linux / Mac
+venv\Scripts\activate     # Windows
+
+
 
 ##  Conclusion
 Ce projet démontre l’impact **majeur du Machine Learning** dans la lutte contre la fraude bancaire.
