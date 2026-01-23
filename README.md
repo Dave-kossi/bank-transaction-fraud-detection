@@ -95,25 +95,24 @@ Comparaison de plusieurs algorithmes :
 
 ---
 
-##  Résultats
-![Performances](Dashboard.png)
+## 📊 Résultats : Évaluation des Modèles de Détection de Fraude
 
-### Analyse
-- **Logistic Regression**  
-  ✔️ Détecte 100% des fraudes  
-  ❌ Trop de fausses alertes  
+L'analyse de performance repose sur le compromis entre la détection maximale des fraudes (**Rappel**) et la réduction des fausses alertes (**Précision**). Les scores ci-dessous ont été obtenus sur le jeu de test :
 
-- **Random Forest**  
-  ✅ Bon compromis entre Recall et Precision  
+![Performances des Modèles](Screenshot%20from%202026-01-20%2016-06-12.png)
 
-- **Gradient Boosting**  
-  ✔️ Très peu de fausses alertes  
-  ❌ Manque trop de fraudes  
+###  Analyse et Sélection du Modèle
 
- **Modèle recommandé : Random Forest**
+* **Régression Logistique :** Elle présente le **Rappel le plus élevé (91.6%)**, mais sa **faible précision (34.9%)** est problématique. Dans un contexte bancaire, cela générerait un trop grand nombre de transactions légitimes bloquées par erreur.
+* **Modèles d'Ensemble (RF, XGB, GBM) :** Ces modèles offrent une **Précision exceptionnelle (proche de 100%)**, garantissant qu'aucune alerte n'est déclenchée sans raison. Cependant, leur capacité de détection automatique stagne autour de 61.8%.
+* **🏆 Modèle Choisi : LightGBM**
+    * Il offre le meilleur compromis avec un **Rappel de 62.0%** (légèrement supérieur aux autres modèles à haute précision).
+    * Avec un **F1-Score de 0.764** et une **Précision de 99.7%**, il assure une sécurité maximale tout en optimisant l'expérience utilisateur.
 
 ---
 
+##  Impact Métier
+L'utilisation de **LightGBM** permet de sécuriser les transactions avec une fiabilité quasi-totale sur les alertes générées. Pour capturer les 38% de fraudes restantes non détectées par l'IA, des systèmes experts basés sur des règles métiers spécifiques peuvent être implémentés en complément.
 ## Impact Attendu
 
 Un système de détection performant permet :
