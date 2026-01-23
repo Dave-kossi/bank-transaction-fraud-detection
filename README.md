@@ -52,11 +52,9 @@ L'analyse repose sur le compromis Rappel/Précision :
 
 ![Performances des Modèles](Screenshot%20from%202026-01-20%2016-06-12.png)
 
-* **Régression Logistique** : Excellent Rappel (**91.6%**) mais trop de fausses alertes (Précision de 34.9%).
-* **Modèles d'Ensemble** : Offrent une **Précision exceptionnelle (~100%)**.
-* **🏆 Choix Final : LightGBM**
-    * Meilleur compromis avec un Rappel de **62.0%**.
-    * Précision de **99.7%** et F1-Score de **0.764**.
+* **Régression Logistique** : Présente le Rappel le plus élevé (**0.916**), mais sa faible précision (**0.349**) bloquerait trop de clients légitimes.
+* **Modèles d'Ensemble (RF, GB, XGB, GBM)** : Offrent une **Précision exceptionnelle (proche de 1.000)**, garantissant la fiabilité des alertes.
+* **Choix Final** : **LightGBM** est retenu car il offre le meilleur équilibre avec un Rappel de **0.620** (le plus élevé des modèles robustes) et une Précision de **0.997**.
 
 ---
 
@@ -72,12 +70,17 @@ L'analyse repose sur le compromis Rappel/Précision :
 * **Précision de 100%** : Idéal pour un blocage automatique sans risque pour les clients légitimes.
 * **Variables clés** : Introduit la notion de distance (`Transaction_Distance`) et d'ancienneté (`Card_Age`).
 
-### 3. Gradient Boosting & XGBoost
+### 3. Gradient Boosting (GBM)
+![Importance GB](GB.png)
+* **Variables Clés** : Comme les autres modèles d'ensemble, il s'appuie massivement sur l'historique d'échecs, mais affine sa précision (0.997) via la correction séquentielle des erreurs.
+* **Synthèse** : Offre une performance robuste avec un AUC de **0.810**, égalant les meilleurs modèles d'ensemble.
+
+### 4. Gradient Boosting & XGBoost
 ![Importance XGB](XGB.png)
 * **Rigueur** : XGBoost atteint **99.9% de précision**.
 * **Focus** : Focalisation extrême sur les signaux techniques (IP, Authentification).
 
-### 4. LightGBM (Modèle Final)
+### 5. LightGBM (Modèle Final)
 ![Importance LGB](LGB.png)
 * **Vision Multidimensionnelle** : Contrairement aux autres, il équilibre l'importance entre le montant, le solde et l'historique. 
 * **Bénéfice** : Cette nuance lui permet de capturer plus de fraudes (**Recall 62%**) tout en restant ultra-fiable.
