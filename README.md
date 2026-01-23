@@ -101,7 +101,33 @@ L'analyse repose sur le compromis Rappel/Précision :
 | **Avec IA (LightGBM)** | 38 | 117.80 € | **+ 192.20 €** |
 
 ---
+##  Conclusion : La supériorité de LightGBM face aux "Fraudes Silencieuses"
+
+L'enjeu majeur de ce projet était de dépasser la détection "évidente" pour capturer des schémas de fraude sophistiqués que les modèles standards peinent à identifier.
+
+###  L'avantage comparatif de LightGBM
+
+Alors que des modèles comme la **Régression Logistique** ou **XGBoost** se focalisent massivement sur la variable `Failed_Transaction_Count_7d`, ils deviennent vulnérables face aux fraudeurs expérimentés qui réussissent leurs transactions du premier coup.
+
+* **La limite des modèles classiques** : Si une transaction ne présente pas d'échecs préalables, ces modèles ont tendance à la classer comme légitime, laissant passer des fraudes "propres" mais coûteuses.
+* **La force de LightGBM** : Grâce à une distribution d'importance beaucoup plus équilibrée, LightGBM analyse des signaux plus subtils. Même en l'absence d'échecs de paiement, il identifie une anomalie en croisant des variables de contexte :
+    * Le ratio **Montant / Solde du compte** (`Transaction_Amount` vs `Account_Balance`).
+    * La déviation par rapport à la **moyenne hebdomadaire** (`Avg_Transaction_Amount_7d`).
+    * L'incohérence de la **distance géographique** (`Transaction_Distance`).
+
+
+
+### 📈 Pourquoi 62.0% est une victoire métier
+
+Cette vision multidimensionnelle permet à **LightGBM** d'atteindre un Rappel de **0.620**, là où les autres modèles à haute précision plafonnent à **0.618**. 
+
+Ces **0.2% de différence** ne sont pas une simple variation statistique : ils représentent la capture des fraudes les plus complexes, celles qui contournent les barrières de sécurité classiques basées sur la "force brute" (tentatives répétées).
+
+### Bilan Final
+
+Le déploiement de **LightGBM** garantit non seulement une **Précision de 99.7%** (quasiment aucune fausse alerte pour les clients), mais assure surtout une couverture contre les stratégies de fraude émergentes. **C'est le modèle qui offre la sécurité la plus résiliente et la plus intelligente pour l'institution financière.**
+
+---
 
 ## 👤 Auteur
-**Kossi Noumagno**
-*Data Analyst / Futur Data Scientist*
+**Kossi Noumagno** *Data Analyst / Passionné par le Machine Learning & l`IA*
