@@ -96,12 +96,7 @@ Comparaison de plusieurs algorithmes :
 ---
 
 ##  Résultats
-
-| Modèle | ROC-AUC | Recall | Precision | F1-Score |
-|------|--------|--------|-----------|----------|
-| Logistic Regression | 0.812 | 1.000 | 0.321 | 0.486 |
-| Random Forest | 0.811 | 0.834 | 0.414 | 0.553 |
-| Gradient Boosting | 0.807 | 0.623 | 0.981 | 0.762 |
+![Performances](Dashboard.png)
 
 ### Analyse
 - **Logistic Regression**  
