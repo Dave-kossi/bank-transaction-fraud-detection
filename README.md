@@ -22,7 +22,7 @@ Chaque fraude non détectée entraîne un coût moyen de **3,10 €** de rembour
 
 ---
 
-## 🚀 Pourquoi la Détection est Critique
+##  Pourquoi la Détection est Critique
 1.  **Impact Financier Direct** : Remboursements et frais de contestation.
 2.  **Volume Massif** : Le contrôle manuel est impossible sur des millions de transactions quotidiennes ; le **Machine Learning est indispensable**.
 3.  **Réactivité** : Besoin de blocage **en temps réel**.
