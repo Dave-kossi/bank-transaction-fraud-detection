@@ -1,178 +1,104 @@
-# Projet de Détection de Fraude Bancaire
+# 🛡️ Projet de Détection de Fraude Bancaire
 
 ##  Contexte et Enjeux
-La fraude bancaire représente un défi majeur pour les institutions financières. Chaque année, des **milliards d’euros** sont perdus à travers différentes formes de fraude :
-
-- Usurpation d’identité  
-- Transactions non autorisées  
-- Falsification de documents  
+La fraude bancaire représente un défi majeur pour les institutions financières. Chaque année, des **milliards d’euros** sont perdus à travers différentes formes de fraude (usurpation d’identité, transactions non autorisées, falsification).
 
 L’impact est double :
-
-- **Financier** : pertes directes liées aux transactions frauduleuses  
-- **Réputationnel** : perte de confiance des clients et partenaires  
+* **Financier** : pertes directes liées aux transactions.
+* **Réputationnel** : perte de confiance des clients.
 
 ---
 
 ## 💰 Impact Économique
-Chaque fraude non détectée entraîne un coût moyen de **3,10 €** de remboursement pour l’institution financière.
+Chaque fraude non détectée entraîne un coût moyen de **3,10 €** de remboursement pour l’institution.
 
 | Fraudes non détectées | Coût des remboursements |
-|----------------------|-------------------------|
+| :--- | :--- |
 | 1 000 | 3 100 € |
 | 10 000 | 31 000 € |
 | 100 000 | 310 000 € |
 
-⚠️ Ces chiffres n’incluent pas :
-- Les coûts administratifs  
-- Les coûts d’enquête  
-- Les pertes liées à la réputation  
+> ⚠️ *Ces chiffres n’incluent pas les coûts administratifs, d'enquête et les pertes de réputation.*
 
 ---
 
-##  Pourquoi la Détection de Fraude est Critique
-
-### 1️⃣ Impact Financier Direct
-Chaque transaction frauduleuse génère :
-- Un remboursement au client
-- Des frais de contestation
-- Une perte de confiance
-
-### 2️⃣ Volume Massif de Transactions
-Les banques traitent **des millions de transactions par jour**.  
-➡️ Un contrôle manuel est impossible, le **Machine Learning est indispensable**.
-
-### 3️⃣ Besoin de Réactivité
-Une fraude détectée **en temps réel** peut être bloquée avant validation.  
-Un simple retard de quelques heures peut rendre l’argent irrécupérable.
-
-### 4️⃣ Un Équilibre Délicat
-- 🚨 Trop agressif → trop de fausses alertes, clients mécontents  
-- 💤 Trop conservateur → fraudes non détectées, pertes financières  
+## 🚀 Pourquoi la Détection est Critique
+1.  **Impact Financier Direct** : Remboursements et frais de contestation.
+2.  **Volume Massif** : Le contrôle manuel est impossible sur des millions de transactions quotidiennes ; le **Machine Learning est indispensable**.
+3.  **Réactivité** : Besoin de blocage **en temps réel**.
+4.  **Équilibre Délicat** : Éviter d'être trop agressif (clients mécontents) ou trop conservateur (pertes financières).
 
 ---
 
 ## 🤖 Objectif du Projet
-Développer un **système automatisé de détection de fraude** capable de :
-
-- Maximiser le **Recall** (détecter un maximum de fraudes)
-- Maintenir une **Precision** acceptable (limiter les fausses alertes)
-- Permettre une **intervention rapide** (temps réel)
-- Éviter le blocage injustifié des clients légitimes
-
- **Objectif final** : optimiser le **coût-bénéfice global** en tenant compte :
-- Du coût d’une fraude non détectée
-- Du coût d’une fausse alerte
+Développer un **système automatisé** capable de :
+* Maximiser le **Rappel (Recall)** pour détecter un maximum de fraudes.
+* Maintenir une **Précision** élevée pour limiter les fausses alertes.
+* Optimiser le **coût-bénéfice global** du système.
 
 ---
 
-## Approche Méthodologique
-
-### 🔍 1. Compréhension des Données
-Analyse exploratoire approfondie pour identifier :
-- Les patterns de fraude
-- Les caractéristiques des transactions suspectes
-- Les corrélations entre variables
-
-###  2. Feature Engineering
-Création de variables discriminantes :
-- Montants et fréquence des transactions
-- Localisation et comportements inhabituels
-- Historique client
-- Signaux de risque (échecs de paiement, anomalies)
-
-###  3. Modélisation Machine Learning
-Comparaison de plusieurs algorithmes :
-
-- **Logistic Regression** : baseline interprétable
-- **Random Forest** : modèle ensembliste robuste
-- **Gradient Boosting** : modèle performant par boosting
-
-###  4. Optimisation & Validation
-- Validation croisée **5-fold**
-- Prévention du sur-apprentissage (overfitting)
-- Comparaison via des métriques adaptées aux données déséquilibrées
+## 🛠️ Approche Méthodologique
+1.  **Exploration (EDA)** : Identification des patterns de fraude.
+2.  **Feature Engineering** : Création de variables sur les comportements récents, la localisation et les anomalies.
+3.  **Modélisation** : Comparaison de 5 algorithmes (Logistic Regression, Random Forest, GBDT, XGBoost, LightGBM).
+4.  **Validation** : Cross-validation **5-fold** et métriques adaptées aux données déséquilibrées.
 
 ---
 
-## 📊 Résultats : Évaluation des Modèles de Détection de Fraude
+##  Résultats : Évaluation des Modèles
 
-L'analyse de performance repose sur le compromis entre la détection maximale des fraudes (**Rappel**) et la réduction des fausses alertes (**Précision**). Les scores ci-dessous ont été obtenus sur le jeu de test :
+L'analyse repose sur le compromis Rappel/Précision :
 
 ![Performances des Modèles](Screenshot%20from%202026-01-20%2016-06-12.png)
 
-###  Analyse et Sélection du Modèle
-
-* **Régression Logistique :** Elle présente le **Rappel le plus élevé (91.6%)**, mais sa **faible précision (34.9%)** est problématique. Dans un contexte bancaire, cela générerait un trop grand nombre de transactions légitimes bloquées par erreur.
-* **Modèles d'Ensemble (RF, XGB, GBM) :** Ces modèles offrent une **Précision exceptionnelle (proche de 100%)**, garantissant qu'aucune alerte n'est déclenchée sans raison. Cependant, leur capacité de détection automatique stagne autour de 61.8%.
-* **🏆 Modèle Choisi : LightGBM**
-    * Il offre le meilleur compromis avec un **Rappel de 62.0%** (légèrement supérieur aux autres modèles à haute précision).
-    * Avec un **F1-Score de 0.764** et une **Précision de 99.7%**, il assure une sécurité maximale tout en optimisant l'expérience utilisateur.
+* **Régression Logistique** : Excellent Rappel (**91.6%**) mais trop de fausses alertes (Précision de 34.9%).
+* **Modèles d'Ensemble** : Offrent une **Précision exceptionnelle (~100%)**.
+* **🏆 Choix Final : LightGBM**
+    * Meilleur compromis avec un Rappel de **62.0%**.
+    * Précision de **99.7%** et F1-Score de **0.764**.
 
 ---
 
-##  Impact Métier
-L'utilisation de **LightGBM** permet de sécuriser les transactions avec une fiabilité quasi-totale sur les alertes générées. Pour capturer les 38% de fraudes restantes non détectées par l'IA, des systèmes experts basés sur des règles métiers spécifiques peuvent être implémentés en complément.
-## Impact Attendu
+## 🧠 Analyse de l'Interprétabilité : Pourquoi le Modèle Prédit la Fraude ?
 
-Un système de détection performant permet :
+### 1. Régression Logistique (Baseline)
+![Importance LR](LR.png)
+* **Signal Maître** : `Failed_Transaction_Count_7d` est le prédicteur n°1 (Score 1.0).
+* **Analyse** : Le modèle est très sensible aux échecs de paiement récents mais génère trop de faux positifs.
 
--  Réduction des pertes financières
--  Diminution des coûts opérationnels
--  Amélioration de l’expérience client
--  Détection en temps réel des fraudes
+### 2. Random Forest
+![Importance RF](RF.png)
+* **Précision de 100%** : Idéal pour un blocage automatique sans risque pour les clients légitimes.
+* **Variables clés** : Introduit la notion de distance (`Transaction_Distance`) et d'ancienneté (`Card_Age`).
 
-### Exemple d’Impact
-Sur **10 000 transactions** dont **100 frauduleuses** :
+### 3. Gradient Boosting & XGBoost
+![Importance XGB](XGB.png)
+* **Rigueur** : XGBoost atteint **99.9% de précision**.
+* **Focus** : Focalisation extrême sur les signaux techniques (IP, Authentification).
 
-| Approche | Fraudes détectées | Fraudes manquées | Coût des pertes |
-|--------|------------------|-----------------|----------------|
-| Sans système | 0 | 100 | 310 € |
-| Random Forest | 83 | 17 | 52,70 € |
-
-💰 **Économie réalisée : 257,30 €**  
-(Calcul basé sur un coût moyen de 3,10 € par fraude)
+### 4. LightGBM (Modèle Final)
+![Importance LGB](LGB.png)
+* **Vision Multidimensionnelle** : Contrairement aux autres, il équilibre l'importance entre le montant, le solde et l'historique. 
+* **Bénéfice** : Cette nuance lui permet de capturer plus de fraudes (**Recall 62%**) tout en restant ultra-fiable.
 
 ---
+
 ## 🔁 Reproductibilité & Bonnes Pratiques
-
-Ce projet a été conçu selon les **standards professionnels de la Data Science**, afin de garantir :
-
-- 🔄 La **reproductibilité des résultats**
-- 🧪 La **traçabilité des expérimentations**
-- 🏗️ Une structure claire et maintenable
-
-### Principes appliqués
-- Utilisation de **seeds aléatoires fixées** pour garantir des résultats reproductibles
-- Séparation stricte :
-  - Données d’entraînement
-  - Données de validation
-  - Données de test
-- Validation croisée **5-fold**
-- Métriques adaptées aux **données fortement déséquilibrées**
-- Pipelines clairs pour le prétraitement et la modélisation
-
-### Évaluation orientée métier
-Les métriques ne sont pas uniquement techniques :
-- Le **Recall** est prioritaire (fraudes détectées)
-- La **Precision** est surveillée pour limiter les coûts opérationnels
-- Les résultats sont analysés sous l’angle **coût-bénéfice métier**
+* **Seeds fixées** pour des résultats constants.
+* **Séparation stricte** des jeux de données (Train/Val/Test).
+* **Pipelines clairs** pour le prétraitement et la modélisation.
 
 ---
 
-##  Conclusion
-Ce projet démontre l’impact **majeur du Machine Learning** dans la lutte contre la fraude bancaire.
-
-Grâce à :
-- Des données de qualité  
--  Un feature engineering pertinent  
--  Des modèles optimisés  
--  Une évaluation rigoureuse  
-
-Il est possible de déployer un système **efficace, rentable et scalable**, offrant un **retour sur investissement significatif** pour les institutions financières.
+## 📈 Impact Attendu (Exemple pour 10 000 transactions)
+| Approche | Fraudes manquées | Coût des pertes | Économie réalisée |
+| :--- | :---: | :---: | :---: |
+| Sans système | 100 | 310 € | - |
+| **Avec IA (LightGBM)** | 38 | 117.80 € | **+ 192.20 €** |
 
 ---
 
 ## 👤 Auteur
-**Kossi Noumagno**  
-Junior Data Analyst / Data Scientist  
+**Kossi Noumagno**
+*Data Analyst / Futur Data Scientist*
