@@ -45,6 +45,18 @@ Développer un **système automatisé** capable de :
 4.  **Validation** : Cross-validation **5-fold** et métriques adaptées aux données déséquilibrées.
 
 ---
+##  Analyse Visuelle : Distribution de la Fraude
+L'analyse exploratoire des données montre que la fraude est un phénomène "omnicanal" sans cible privilégiée évidente, ce qui rend sa détection par de simples règles manuelles impossible.
+
+![Répartition de la Fraude](Fraud_Repartition.png)
+
+### 📈 Observations Clés du Dashboard
+* **Équilibre des Appareils** : La fraude est répartie uniformément entre **Mobile, Tablette et Laptop (~33%)**. Aucun terminal n'est intrinsèquement plus "sûr" qu'un autre.
+* **Universalité des Cartes** : Les volumes de fraude sont identiques pour **Mastercard, Visa, Amex et Discover (~25%)**, prouvant que les attaquants exploitent des failles au niveau de la transaction et non du réseau.
+* **Répartition par Secteur** : Des **Voyages (20%)** à l'**Électronique (19,8%)**, la fraude touche tous les domaines de consommation de manière homogène.
+* **Le Défi de l'Authentification** : Paradoxalement, les méthodes de sécurité comme l'**OTP** ou la **Biométrie** affichent des taux de fraude similaires au **PIN** classique. Cela démontre la nécessité d'une intelligence artificielle capable de détecter des signaux comportementaux au-delà du simple facteur d'authentification.
+
+---
 
 ##  Résultats : Évaluation des Modèles
 
