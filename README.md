@@ -142,4 +142,4 @@ Le déploiement de **LightGBM** garantit non seulement une **Précision de 99.7%
 ---
 
 ## 👤 Auteur
-**Kossi Noumagno** *Data Analyst / Passionné par le Machine Learning & l`IA*
+**Kossi Noumagno** *Data Scientist | Machine Learning Engineer | M2 Ingénierie Mathématique & Data Science*
